@@ -1,0 +1,35 @@
+{% extends 'base.twig' %}
+{% block content %}
+
+    <script src="/views/js/connection.js"> </script>
+
+
+        <h2> Connection !!</h2>
+   
+
+            <form >
+           
+              
+                <div>
+                    <label for="mail">Mail :</label>
+                    <input  type="text" id="mail" name="mail" placeholder="mail" >
+                </div>
+
+                <div>
+                    <label for="mdp">Mot de Passe :</label>
+                    <input  type="text" id="mdp" name="mdp" placeholder="mdp" >
+                </div>
+
+                
+                <div class="button">
+                    <a  id="bouttonConnection" > Connection   </a>  
+                </div>
+
+            </form>
+
+    
+
+
+
+
+{% endblock %}

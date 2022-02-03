@@ -1,0 +1,90 @@
+body, html{
+    text-align:center;
+    padding:0;
+    margin:0;
+    font-family:sans-serif;
+    scroll-behavior: smooth;  
+    scrollbar-width: none;
+    width:auto;
+    color:black;
+    
+}
+
+.container-fluid, .row, main{
+    justify-content:center;
+    width:100%;
+    padding:0;
+    margin:0;
+    margin-bottom:1vh;
+}
+
+
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	background-color:#fe1a00;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+	background-color:#ce0100;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+/*
+    NAVBAR
+*/
+.navbar a {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #ffffff 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px;
+    margin-left:2vh;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.navbar button:hover {
+	background:linear-gradient(to bottom, #ffffff 5%, #ffffff 100%);
+	background-color:#ffffff;
+}
+
+.navbar button:active {
+	position:relative;
+	top:1px;
+}
+
+    
+header, nav  {
+    height:8vh;
+    background-color:black;
+}
+
+header h1, nav h1 {
+    font-size:3vh;
+    margin-top:2vh;
+    color:white;
+}
+
+
