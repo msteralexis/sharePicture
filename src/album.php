@@ -8,16 +8,20 @@ class Album {
     protected $affiche = 0;
     protected $url = ' ';
     protected $idUser = 0;
+    protected $date = '';
+    protected $photo = array();
+
 
 
 
     // Constructeur
-    public function __construct($id, $nom, $affiche, $url, $idUser) {
+    public function __construct($id, $nom, $affiche, $url, $idUser, $date) {
         $this->id = $id;
         $this->nom = $nom;
         $this->affiche = $affiche;
         $this->url = $url;     
-        $this->idUser = $idUser;   
+        $this->idUser = $idUser; 
+        $this->date = $date;  
     }
 
 
@@ -43,18 +47,36 @@ class Album {
         return $this->idUser;
     }
 
+    public function getDate(){
+        return $this->date;
+    }
+
+    
+
 
 
     public function setNom( $nom ){
-        return $this->nom;
+        $this->nom = $nom;
     }
 
     public function setAffiche( $affiche ){
-        return $this->affiche;
+        $this->affiche = $affiche;
     }
 
     public function setUrl( $url ){
-        return $this->url;
+        $this->url = $url;
+    }
+
+
+    public function miseAjoursPhoto( $bdd ){
+        $c = $bdd->listAlbums( $this->getId() );
+        
+        $listModulesTab = array();
+        while($Module = $c->fetch() ){
+            $a = new Album( $Module['id'], $Module['nom'], $Module['affiche'], $Module['urlalbum'], $Module['iduser']) ;
+            $listModulesTab[] = $a;
+        }
+        $this->setAlbums( $listModulesTab);
     }
 
 

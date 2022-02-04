@@ -85,8 +85,9 @@ class Bdd {
     }
 
     public function insertAlbums( $nom, $affiche, $urlalbum, $idUser) {
-        $res =  $this->conn->prepare(" INSERT into album (nom, affiche, urlalbum, iduser) values ( ?, ?, ?, ? )");
-        return $res->execute( array( $nom, $affiche, $urlalbum, $idUser )) ;
+        $res =  $this->conn->prepare(" INSERT into album (nom, affiche, urlalbum, iduser, date) values ( ?, ?, ?, ?, ? )");
+        $date = date("m/d/y") ;
+        return $res->execute( array( $nom, $affiche, $urlalbum, $idUser, $date  )) ;
     }
 
     public function listPhotosAlbum( $idAlbums) {

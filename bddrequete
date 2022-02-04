@@ -1,6 +1,6 @@
 create table user (id int not null primary key auto_increment, nom varchar(50), prenom varchar(50), mail varchar(50), mdp varchar(50) );
 
-create table album (id int not null primary key auto_increment, nom varchar(50), affiche int, urlalbum varchar(50), iduser int );
+create table album (id int not null primary key auto_increment, nom varchar(50), affiche int, urlalbum varchar(50), iduser int, date varchar(10) );
 
 create table albumphoto( album int, photo int );
 

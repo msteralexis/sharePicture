@@ -6,6 +6,12 @@ require "../vendor/autoload.php";
 $a = substr(sha1(mt_rand()),17,50);
 var_dump($a);
 
+$m = date("m/d/y"); 
+var_dump($m);
+
+
+
+
 $bdd = new Bdd;
 
 session_start(); 

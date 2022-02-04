@@ -127,9 +127,13 @@ function ajoutAlbum( nom, iduser) {
         var contentType = response.headers.get("content-type");
     if(contentType && contentType.indexOf("application/json") !== -1) {
         return response.json().then(function(json) {
-            if(json =='ajouter'){
-              amert("Album ajouter.")
-            }
+
+            var listAlbums = document.querySelector('#listAlbums');
+
+            retourAlbum = JSON.parse(json)
+            listAlbums.innerHTML = listAlbums.innerHTML + ' ' +retourAlbum.nom + '  ' + retourAlbum.id 
+           
+         
         });
     }
 
@@ -144,8 +148,7 @@ onload = function() {
     var bouttonModificationMDP = document.querySelector('#bouttonModificationMDP');
     var bouttonAjoutsAlbum = document.querySelector('#bouttonAjoutsAlbum');
 
-	bouttonInscription.addEventListener('click', function() {
-		  
+	bouttonInscription.addEventListener('click', function() {	  
         var nom = document.querySelector('#nom')
         var prenom = document.querySelector('#prenom')
         var mail = document.querySelector('#mail')
@@ -154,7 +157,6 @@ onload = function() {
 	});
    
     bouttonModificationMDP.addEventListener('click', function() {
-	
         var mdp1 = document.querySelector('#mdp1')
         var mdp2 = document.querySelector('#mdp2')
         var id =  document.querySelector('#idUser')
@@ -166,8 +168,6 @@ onload = function() {
     
 
     bouttonAjoutsAlbum.addEventListener('click', function() {
-	
-
         var nomAlbum = document.querySelector('#nomAlbum')
         var idUser = document.querySelector('#idUser')
         ajoutAlbum( nomAlbum, idUser) 

@@ -78,11 +78,13 @@
         
         <h2> Vos Albums  </h2>
 
-
+        <div id="listAlbums"> 
        {% for album in user.getAlbums %}
             {{ album.getNom }}
             {{ album.getAffiche }}
         {% endfor %}
+
+        </div>
 
  
     </div> 
