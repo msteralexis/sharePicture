@@ -4,12 +4,48 @@
 {% block content %}
 
 
+  <script src="/views/js/detailsAlbum.js"> </script>
+
+
 
 
 <div class="row">
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 ">
         
-        <h2> Details albums</h2>
+        <h2> Details albums  </h2>
+       
+
+        <input id="idAlbum" name="idAlbum" type="hidden" value="{{album.getId}}" >
+
+      
+        <input id="urlAlbum" name="urlAlbum" value="{{url}}" >
+
+
+        <label > Affichage </label> 
+        <input type="checkbox" class="demo5" id="demo5" {% if album.getAffiche != 0 %} checked {% endif %} >
+        <label for="demo5"></label>
+
+
+
+
+
+        <div id="drop" style="width:250px;height:250px;background-color:green;" >
+
+        </div>
+
+
+
+        <div id="listAlbum"> 
+            {% for list in album.getPhoto %}
+        
+                <article> 
+                    <img src="{{list.getImage}}" alt="Base64 Image">  
+                
+                    
+                </article> 
+            {% endfor %}
+        </div> 
+
 
     </div> 
 </div> 

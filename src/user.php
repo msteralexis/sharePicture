@@ -67,6 +67,7 @@ class User {
         $listModulesTab = array();
         while($Module = $c->fetch() ){
             $a = new Album( $Module['id'], $Module['nom'], $Module['affiche'], $Module['urlalbum'], $Module['iduser'], $Module['date']) ;
+            $a->miseAjoursPhoto( $bdd );
             $listModulesTab[] = $a;
         }
         $this->setAlbums( $listModulesTab);

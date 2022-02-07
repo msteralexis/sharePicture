@@ -4,7 +4,6 @@ create table album (id int not null primary key auto_increment, nom varchar(50),
 
 create table albumphoto( album int, photo int );
 
-
 create table photo (id int not null primary key auto_increment, nom varchar(50), image blob, idalbum int );
 
 

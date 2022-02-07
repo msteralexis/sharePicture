@@ -19,53 +19,110 @@ Flight::register('view', '\Twig\Environment', array($loader, $twigConfig), funct
 /* 
     Gestio des routages
 */
+
+// page d'acceuil
 Flight::route('/', function(){
     Flight::view()->display('index.twig');
 });
 
+// requete non fondées alors redirection vers page d'acceuil
 Flight::map('notFound', function(){
     Flight::view()->display('index.twig');
 });
 
+// affichage d'un album pour les autres utilsiateurs
+Flight::route('/afficheAlbum/@urlAlbum', function($urlAlbum){
+    $bdd = new Bdd;
+    $Module = $bdd->detialsAlbumUrl( $urlAlbum );
+    if($Module['affiche'] != 0){
+        $album = new Album( $Module['id'], $Module['nom'], $Module['affiche'], $Module['urlalbum'], $Module['iduser'], $Module['date']) ;
+        $album->miseAjoursPhoto( $bdd );
+        $data = [
+            'album' => $album,   
+        ];
+        Flight::view()->display('albumPartage.twig', $data);
+    }else {
+        Flight::view()->display('albumPartageInexsitant.twig');
+    } 
+});
 
-
+// déconnection et redirection vers la page d'accueil
 Flight::route('/deconnection', function(){
     deconnection();
     Flight::view()->display('index.twig');
 });
 
-
-
+// connection d'un utilisateurs
 Flight::route('/connection', function(){
-    Flight::view()->display('connection.twig');
-});
-
-
-
-Flight::route('/acceuilConnection', function(){
     session_start(); 
     if( isset($_SESSION['user'])){
         $res = $_SESSION['user'];
-
         $data = [
             'user' => $res,
         ];
 
         Flight::view()->display('acceuilConnection.twig', $data );
     }else {
-        header('Location: ./connection');  exit();
+        Flight::view()->display('connection.twig');
     }
+    
 });
 
-
+// inscription d'un utilsiateurs
 Flight::route('/inscription', function(){
     Flight::view()->display('inscription.twig');
 });
 
 
-Flight::route('/detailsAlbum', function(){
-    Flight::view()->display('detailsAlbum.twig');
+
+// page d'acceuil d'un utilisateur connectées
+Flight::route('/acceuilConnection', function(){
+    session_start(); 
+    if( isset($_SESSION['user'])){
+        $res = $_SESSION['user'];
+        $data = [
+            'user' => $res,
+        ];
+
+        Flight::view()->display('acceuilConnection.twig', $data );
+    }else {
+        Flight::view()->display('connection.twig');
+    }
 });
+
+
+
+// page détaillant le contenue d'un album au utilisateurs et permmetant de le gerer 
+Flight::route('/detailsAlbum/@idalbum', function($idalbum){
+    session_start();  $bdd = new Bdd;
+    
+    if( isset($_SESSION['user'])){
+        $user =  $_SESSION['user'];
+        foreach($_SESSION['user']->getAlbums() as $val) {
+            if($idalbum == $val->getId() ){
+                $albumDetails = $val;
+            }
+        }
+        $url = "http://$_SERVER[HTTP_HOST]/afficheAlbum/".$albumDetails->getUrl();
+       
+        $data = [
+            'user' => $user,
+            'album' => $albumDetails,
+            'url' => $url
+        ];
+    
+        Flight::view()->display('detailsAlbum.twig', $data);
+    }else {
+        header('Location: ./connection');  exit();
+    }
+
+});
+
+
+
+
+
+
 
 
 // démarrage de flight pour le routage
@@ -74,4 +131,3 @@ Flight::start();
 
 
 
-/* https://www.digitalocean.com/community/tutorials/how-to-use-the-mysql-blob-data-type-to-store-images-with-php-on-ubuntu-18-04-fr */

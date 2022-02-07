@@ -76,10 +76,10 @@ if( $data->type == 'ajoutalbum' ) {
         if(  $Module = $bdd->insertAlbums( $data->nomalbum, 0, $urlalbum, $data->iduser ) ) { 
             $_SESSION['user']->miseAjoursAlbums( $bdd );
             $listAlbums =   $_SESSION['user']->getAlbums() ; 
-            $testReponse = '{"nom":'. $listAlbums[2]->getNom() .', "id":42}'; 
+            $album = end($listAlbums); 
+            $testReponse = '{"nom": "'. $album->getNom() .'", "id":"'. $album->getId() .'", "date": "'. $album->getDate() .'" , "affiche": "'. $album->getAffiche() .'"}'; 
         }
     }  
-    
     $bdd->closeConnection(); jsonRetour( $testReponse ); 
 }
 

@@ -51,6 +51,10 @@ class Album {
         return $this->date;
     }
 
+    public function getPhoto(){
+        return $this->photo;
+    }
+
     
 
 
@@ -67,16 +71,20 @@ class Album {
         $this->url = $url;
     }
 
+    public function setPhoto( $listPhotos){
+        $this->photo = $listPhotos;
+    }
+
 
     public function miseAjoursPhoto( $bdd ){
-        $c = $bdd->listAlbums( $this->getId() );
+        $c = $bdd->listPhotosAlbum( $this->getId() );
         
         $listModulesTab = array();
         while($Module = $c->fetch() ){
-            $a = new Album( $Module['id'], $Module['nom'], $Module['affiche'], $Module['urlalbum'], $Module['iduser']) ;
+            $a = new Photo( $Module['id'], $Module['nom'], $Module['image'], $Module['idalbum'] ) ;
             $listModulesTab[] = $a;
         }
-        $this->setAlbums( $listModulesTab);
+        $this->setPhoto( $listModulesTab );
     }
 
 

@@ -51,7 +51,7 @@
 
 
 
-<div class="row">
+<div class="row">album
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 ">   
     
         <h2> Modifiez votre mot de passe </h2>
@@ -80,8 +80,15 @@
 
         <div id="listAlbums"> 
        {% for album in user.getAlbums %}
-            {{ album.getNom }}
-            {{ album.getAffiche }}
+       
+            <article> 
+                <a href="./detailsAlbum/{{album.getId}}">
+                {{album.getId}}
+                {{ album.getNom }}
+                {{ album.getAffiche }}
+                {{ album.getDate }}
+                </a>
+            </article> 
         {% endfor %}
 
         </div>

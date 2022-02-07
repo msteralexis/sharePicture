@@ -95,7 +95,6 @@ function modificationtUtilisateurMDP( mdp1, mdp2, id) {
 }
 
 function controlModificationMDP( mdp1, mdp2, id ) {
-
     mdp1.style.backgroundColor='white' 
     mdp2.style.backgroundColor='white' 
        
@@ -126,12 +125,13 @@ function ajoutAlbum( nom, iduser) {
     requeteInscription.then(async( response) =>{ 
         var contentType = response.headers.get("content-type");
     if(contentType && contentType.indexOf("application/json") !== -1) {
-        return response.json().then(function(json) {
+        return response.json().then(function(jsons) {
 
             var listAlbums = document.querySelector('#listAlbums');
 
-            retourAlbum = JSON.parse(json)
-            listAlbums.innerHTML = listAlbums.innerHTML + ' ' +retourAlbum.nom + '  ' + retourAlbum.id 
+            retourAlbum = JSON.parse(jsons)
+            listAlbums.innerHTML = listAlbums.innerHTML + '<article>  <a href="./detailsAlbum/ '+ retourAlbum.id +' \"> ' +retourAlbum.id + '  ' +retourAlbum.nom + ' ' +retourAlbum.affiche + '  ' + retourAlbum.date + '  </a>  </article> '
+           
            
          
         });
