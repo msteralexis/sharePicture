@@ -22,13 +22,21 @@ $Module = $bdd->detialsAlbumUrl( '9e108d' );
 if($Module['affiche'] != 0){
     $album = new Album( $Module['id'], $Module['nom'], $Module['affiche'], $Module['urlalbum'], $Module['iduser'], $Module['date']) ;
     $album->miseAjoursPhoto( $bdd );
-    var_dump($album);
+ 
 
 }
 
 
+$a= $album->getPhoto();
+foreach( $a as $q) {
 
+    $p = $q->getImage();
+    var_dump( strlen($p) );
+    var_dump( mb_strlen($p) );
+   // echo  "<img src=\"$p\" alt=\"Base64 Image\"> "; 
+    
 
+}
 
 /*
 
@@ -44,13 +52,7 @@ $q = $albumDetails->getPhoto();
 
 
 
-foreach( $q as $toto){
 
-    $p = $toto->getImage();
-    echo  "<img src=\"$p\" alt=\"Base64 Image\"> "; 
-    
-
-}
 
 
 
