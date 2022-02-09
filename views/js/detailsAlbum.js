@@ -69,8 +69,6 @@ function requestAfficheAlbum(result, album ){
 
 
 
-
-
 function requestSuppressionPhoto( idPhoto ){
 
     const newPhoto = {
@@ -97,6 +95,41 @@ function requestSuppressionPhoto( idPhoto ){
     
 }
 
+function fallbackCopyTextToClipboard(text) {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+    
+    // Avoid scrolling to bottom
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+  
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+  
+    try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'unsuccessful';
+      console.log('Fallback: Copying text command was ' + msg);
+    } catch (err) {
+      console.error('Fallback: Oops, unable to copy', err);
+    }
+  
+    document.body.removeChild(textArea);
+  }
+
+function copyTextToClipboard(text) {
+    if (!navigator.clipboard) {
+      fallbackCopyTextToClipboard(text);
+      return;
+    }
+    navigator.clipboard.writeText(text).then(function() {
+        alert("le texte à été copier")
+        }, function(err) {
+        alert('Erreur dans la copie: ', err);
+    });
+  }
 
 
 onload = function() {
@@ -110,6 +143,8 @@ onload = function() {
     var affiche = document.querySelector('#demo5');
 
     var li = document.querySelectorAll('.suprime');
+
+    var clickUrl = document.querySelector('#copierUrl'); 
 
 
 
@@ -134,6 +169,46 @@ onload = function() {
 
 
 
+
+
+
+
+
+
+
+
+
+    var inputPhoto = document.querySelector('#inputPhoto');
+
+    inputPhoto.addEventListener('change', doThing);
+
+
+    function doThing(){
+        
+         // chargement d'un fichier
+         var r = new FileReader(); // Création d'un FileReader pour lire le fichier    
+         r.readAsDataURL ( this.files[0] ) 
+         r.onload = function() { // En réaction à la fin de la lecture du fichier par le FileReader :
+        
+        
+             requestAjoutsPhoto( this.result, idAlbum, listAlbum)
+     
+         }
+     }
+
+
+
+
+
+
+
+
+
+     
+    
+
+
+    
     drp.ondragover = function(evt) {
         evt.preventDefault(); // Désactive le comportement par défaut du navigateur (indispensable)
         evt.dataTransfer.dropEffect = 'copy'; // Spécifie l'effet au survol de ce dropable
@@ -156,14 +231,22 @@ onload = function() {
     
     }
 
-    affiche.addEventListener('click', function() {
-        console.log( this.checked );
-        requestAfficheAlbum( this.checked  , idAlbum )
 
-    
+ 
+
+    // Changement de l'affichage de l'album au public ou non 
+    affiche.addEventListener('click', function() {
+        requestAfficheAlbum( this.checked  , idAlbum )
 	});
     
 
+    // chargemet de l'url dans le press papier
+    clickUrl.addEventListener('click', function() {
+        
+        copyTextToClipboard( this.parentNode.firstChild.nodeValue )
+
+	});
+    
 
 
 

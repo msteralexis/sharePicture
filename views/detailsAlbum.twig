@@ -30,7 +30,14 @@
                 </tr>
                 <tr>
                     <td> Url</td>
-                    <td> {{url}} </td>
+                    <td> {{url}}
+
+                      <a  id="copierUrl" class="Button"  value="{{url}}">
+                                copier  
+                          
+                        </a> 
+                        
+                    </td>
                 </tr>
                  <tr>
                     <td> Affichage </td>
@@ -46,9 +53,9 @@
 
     <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 cadre">
         <h2> Drop nouvelle photo  </h2>
-        <div id="drop" style="width:250px;height:250px;background-color:blue;" >
-
-        </div>    
+        <div id="drop" style="width:250px;height:250px;background-color:blue;justify-content:center;" >
+        </div>   
+        <input class="button" type="file" id="inputPhoto" name="inputPhoto" accept="image/png, image/jpeg, image/jpg"> 
     </div>     
 
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 cadre">
