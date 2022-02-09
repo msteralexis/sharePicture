@@ -16,7 +16,7 @@ function controlConnection( mail, mdp) {
         mdp : mdp.value
     }
 
-    const requeteInscription = fetch("../../src/controller/connectionInscription.php", {
+    const requeteInscription = fetch("/src/controller/connectionInscription.php", {
             method: "POST",
             headers: { 
         'Content-Type': 'application/json',

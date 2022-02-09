@@ -37,8 +37,10 @@ Flight::route('/afficheAlbum/@urlAlbum', function($urlAlbum){
     if($Module['affiche'] != 0){
         $album = new Album( $Module['id'], $Module['nom'], $Module['affiche'], $Module['urlalbum'], $Module['iduser'], $Module['date']) ;
         $album->miseAjoursPhoto( $bdd );
+        $url = "http://$_SERVER[HTTP_HOST]/afficheAlbum/".$album->getUrl();
         $data = [
             'album' => $album,   
+            'url' => $url
         ];
         Flight::view()->display('albumPartage.twig', $data);
     }else {
@@ -74,7 +76,6 @@ Flight::route('/inscription', function(){
 });
 
 
-
 // page d'acceuil d'un utilisateur connectées
 Flight::route('/acceuilConnection', function(){
     session_start(); 
@@ -89,7 +90,6 @@ Flight::route('/acceuilConnection', function(){
         Flight::view()->display('connection.twig');
     }
 });
-
 
 
 // page détaillant le contenue d'un album au utilisateurs et permmetant de le gerer 
@@ -117,11 +117,6 @@ Flight::route('/detailsAlbum/@idalbum', function($idalbum){
     }
 
 });
-
-
-
-
-
 
 
 

@@ -10,7 +10,7 @@ function requestAjoutsPhoto(result, album, listAlbum){
         
     }
 
-    const requeteInscription = fetch("http://0.0.0.0:8001/src/controller/detailsAlbums.php", {
+    const requeteInscription = fetch("/src/controller/detailsAlbums.php", {
             method: "POST",
             headers: { 
             'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ function requestAfficheAlbum(result, album ){
         
     }
 
-    const requeteInscription = fetch("http://0.0.0.0:8001/src/controller/detailsAlbums.php", {
+    const requeteInscription = fetch("/src/controller/detailsAlbums.php", {
             method: "POST",
             headers: { 
             'Content-Type': 'application/json',
@@ -79,6 +79,32 @@ var idAlbum = document.querySelector('#idAlbum');
 var affiche = document.querySelector('#demo5');
 
 
+var li = document.querySelectorAll('.suprime');
+
+
+
+
+for(var i = 0;i<li.length;i++){
+    li[i].addEventListener("click", myScript);
+}
+
+function myScript(e){
+    console.log(e.target.attributes.value.value);       
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     drp.ondragover = function(evt) {
         evt.preventDefault(); // Désactive le comportement par défaut du navigateur (indispensable)
         evt.dataTransfer.dropEffect = 'copy'; // Spécifie l'effet au survol de ce dropable
@@ -101,14 +127,13 @@ var affiche = document.querySelector('#demo5');
     
     }
 
-    
-
     affiche.addEventListener('click', function() {
         console.log( this.checked );
         requestAfficheAlbum( this.checked  , idAlbum )
 
     
 	});
+    
 
 
 

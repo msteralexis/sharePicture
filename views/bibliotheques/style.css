@@ -1,5 +1,5 @@
 body, html{
-    text-align:center;
+	justify-content: center;
     padding:0;
     margin:0;
     font-family:sans-serif;
@@ -7,67 +7,74 @@ body, html{
     scrollbar-width: none;
     width:auto;
     color:black;
+	background-color:#00B7E8 ;
     
 }
 
 
 .container-fluid, .row, main{
-    justify-content:center;
+    /* justify-content:center; */
     width:100%;
     padding:0;
     margin:0;
     margin-bottom:1vh;
 }
+
+
 .container-fluid{
 	margin-top:10vh;
-
 }
 
 
 
-
-.myButton {
-	box-shadow:inset 0px 1px 0px 0px #f29c93;
-	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
-	background-color:#fe1a00;
-	border-radius:6px;
-	border:1px solid #d83526;
+/* Bouton */
+.Button {
+	margin-top:2vh;
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:13px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
+	text-shadow:0px 1px 0px #3d768a;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
-	background-color:#ce0100;
+.Button:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
 }
-.myButton:active {
+.Button:active {
 	position:relative;
 	top:1px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+             
 
 .effet{
 	background-color:red;
 	color:red;
 	padding-top:50vh;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
@@ -104,3 +111,125 @@ input[type="checkbox"].demo5 {
   input[type="checkbox"].demo5:checked + label::before {
 	margin-left: 1.5rem ;
   }
+
+
+
+
+
+
+
+
+  /* accueil */
+
+#accueilImage{
+	position:absolute;
+	top:6vh;
+	right:0;
+	height:85vh;
+	width:100%;
+	background-image: url('/views/image/fondAccueil.jpg');
+	/* source image 
+	https://www.pexels.com/fr-fr/photo/photographie-selective-de-l-appareil-photo-reflex-numerique-canon-noir-au-dessus-des-mains-humaines-986733/
+	*/
+	background-size: cover; 
+	
+}
+
+
+#accueilPresentation{
+	padding-top:88vh;
+	height:auto;
+}
+
+
+#accueilPresentation img{
+	position: relative;
+	top:10vh;
+	left:10%;
+	height:125px;
+	width:125px;	
+}
+
+
+#accueilPresentation h1{
+	position: relative;
+	top:10vh;
+	left:25%;
+	width:75%;
+}
+
+#accueilPresentation p{
+	position: relative;
+	top:15vh;
+	left:25%;
+	width:75%;
+}
+
+
+h2{
+	font-size:3vh;
+	padding-top:2vh;
+	color:#408c99;
+	font-weight: bold;
+}
+
+.cadreFormulaire{
+	position:absolute;
+	top:25vh;
+	left:40%;
+	width:auto;
+	padding:1%;
+
+	font-size:2vh;
+	background-color: #fff;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1) inset;
+	border-radius: 1%     1%     1%     1% /     1%     1%     1%     1%;
+}
+
+
+
+/* Affichage des photos charger */
+#listAlbum{
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	padding-top:50px;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	scrollbar-width: none;
+	background-color:white;
+}
+
+article{
+	text-align:center;
+	flex: 0 0 auto;
+	width: 240px;
+	height: 300px;
+	margin: 10px;
+}
+article img {
+	flex: 0 0 auto;
+	width: 200px;
+	height: 200px;
+
+}
+
+article .suprime {
+	padding-top:20px;
+	width:40px;
+	height:50px;
+}
+
+
+
+.cadre{
+	font-size:2vh;
+	background-color: #fff;
+
+	padding:1%;
+	padding-left:9%;
+}
+
+table td{
+	padding:10px;
+}

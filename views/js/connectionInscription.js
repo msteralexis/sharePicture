@@ -30,7 +30,7 @@ function enregistrementUtilisateur( nom, prenom, mail, mdp) {
 
 function requeteInscriptionUsers( newUser ){
     // requetes.
-    const requeteInscription = fetch("./src/controller/connectionInscription.php", {
+    const requeteInscription = fetch("/src/controller/connectionInscription.php", {
         method: "POST",
         headers: { 
     'Content-Type': 'application/json',

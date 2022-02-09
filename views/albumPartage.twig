@@ -3,8 +3,68 @@
  {% extends 'base.twig' %}
  {% block content %}
 
- {{ album.getNom }}
 
 
+
+
+<div class="row">
+    <div class="col-lg-12 col-md-6 col-xs-12 col-sm-12 cadre">
+    
+
+
+    <h2> Details albums  </h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td> Nom </td>
+                    <td> 
+                        {{album.getNom}}
+                    </td>   
+                </tr>
+                <tr>
+                    <td> Date </td>
+                    <td> {{album.getDate}} </td>
+                </tr>
+                <tr>
+                    <td> Url</td>
+                    <td> {{url}} </td>
+                </tr>            
+            </tbody>
+        </table>
+
+    
+    </div> 
+</div> 
+
+
+
+<div class="row">
+    <div class="col-lg-12 col-md-6 col-xs-12 col-sm-12 cadre">
+    
+
+    {{ album.getNom }}
+
+        <div id="listAlbum"> 
+            {% for list in album.getPhoto %}
+        
+                <article> 
+                    <img src="{{list.getImage}}" alt="Base64 Image">  
+                    <a href="{{list.getImage}}"  download="{{list.getImage}}" > Télécharger </a>
+                
+                    
+                </article> 
+            {% endfor %}
+        </div> 
+
+    </div> 
+</div> 
 
     {% endblock %}
+
+    
+
+
+
+
+
+

@@ -24,7 +24,7 @@ function modificationtUtilisateur( nom, prenom, mail,  id) {
 }
 
 function requeteModificationDonneesUsers( newUser) {
-    const requeteInscription = fetch("./src/controller/acceuilConnection.php", {
+    const requeteInscription = fetch("/src/controller/acceuilConnection.php", {
         method: "POST",
         headers: { 
     'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ function modificationtUtilisateurMDP( mdp1, mdp2, id) {
         id: id.value
     }
 
-    const requeteInscription = fetch("./src/controller/acceuilConnection.php", {
+    const requeteInscription = fetch("/src/controller/acceuilConnection.php", {
             method: "POST",
             headers: { 
             'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ function ajoutAlbum( nom, iduser) {
         iduser : iduser.value
     }
 
-    const requeteInscription = fetch("./src/controller/acceuilConnection.php", {
+    const requeteInscription = fetch("/src/controller/acceuilConnection.php", {
             method: "POST",
             headers: { 
             'Content-Type': 'application/json',
