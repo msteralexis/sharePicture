@@ -27,93 +27,6 @@ body, html{
 
 
 
-/* Bouton */
-.Button {
-	margin-top:2vh;
-	box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-	background-color:#599bb3;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:13px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
-}
-.Button:hover {
-	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-	background-color:#408c99;
-}
-.Button:active {
-	position:relative;
-	top:1px;
-}
-
-             
-
-.effet{
-	background-color:red;
-	color:red;
-	padding-top:50vh;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-	Bouton gliser fauche / droite checkbox
-
-*/
-input[type="checkbox"].demo5 {
-	display: none;
-  }
-  input[type="checkbox"].demo5 + label {
-	box-sizing: border-box;
-	display: inline-block;
-	width: 3rem;
-	height: 1.5rem;
-	border-radius: 1.5rem;
-	padding:2px;
-	background-color: #c0ceda ;
-	transition: all 0.5s ;
-  }
-  input[type="checkbox"].demo5 + label::before {
-	box-sizing: border-box;
-	display: block;
-	content: "";
-	height: calc(1.5rem - 4px);
-	width: calc(1.5rem - 4px);
-	border-radius: 50%;
-	background-color: #fff;
-	transition: all 0.5s ;
-  }
-  input[type="checkbox"].demo5:checked + label {
-	background-color: #00B7E8 ;
-  }
-  input[type="checkbox"].demo5:checked + label::before {
-	margin-left: 1.5rem ;
-  }
-
-
-
 
 
 
@@ -121,23 +34,34 @@ input[type="checkbox"].demo5 {
 
   /* accueil */
 
-#accueilImage{
-	position:absolute;
-	top:6vh;
-	right:0;
-	height:85vh;
+#acceuil{
+	height:80vh;
 	width:100%;
-	background-image: url('/views/image/fondAccueil.jpg');
-	/* source image 
-	https://www.pexels.com/fr-fr/photo/photographie-selective-de-l-appareil-photo-reflex-numerique-canon-noir-au-dessus-des-mains-humaines-986733/
-	*/
-	background-size: cover; 
-	
+	text-align:center;
+	padding-top:10vh;
 }
 
+#acceuil img{
+	width: 15%;
+	height:25vh;
+
+	position:absolute;
+	top:15vh;
+	left:15%;
+
+}
+
+#acceuil h1{
+	font-size:auto bold;
+	position:absolute;
+	top:20vh;
+	right:15%;
+	background-color:white;
+	padding:1%;
+	width:20%;
+}
 
 #accueilPresentation{
-	padding-top:88vh;
 	height:auto;
 }
 
@@ -233,3 +157,43 @@ article .suprime {
 table td{
 	padding:10px;
 }
+
+
+
+
+   /* APPLYING MEDIA QUERIES */
+   @media (max-width: 768px) {
+	.menu { 
+	 display:none;
+	 position: absolute;
+	 background-color:black;
+	 right: 0;
+	 left: 0;
+	 text-align: center;
+	 padding: 16px 0;
+	}
+ 
+	
+	.menu li:hover {
+	 display: inline-block;
+	 background-color:#019ac9;
+	 transition: 0.3s ease;
+	}
+	
+	.menu li + li {
+	 margin-top: 12px;
+	}
+	input[type=checkbox]:checked ~ .menu{
+	 display: block;
+	}
+	.hamburger {
+	 display: block;
+	}
+ 
+	
+ 
+	
+ }
+ 
+ 
+ 
