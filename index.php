@@ -54,16 +54,23 @@ Flight::route('/deconnection', function(){
     Flight::view()->display('index.twig');
 });
 
-// connection d'un utilisateurs
-Flight::route('/connection', function(){
+
+function testConnection(){
     session_start(); 
     if( isset($_SESSION['user'])){
         $res = $_SESSION['user'];
-        $data = [
-            'user' => $res,
-        ];
-
-        Flight::view()->display('acceuilConnection.twig', $data );
+        $data = [ 'user' => $res,  ];
+        return $data;
+    }else {
+        return false;
+    }
+    
+}
+// connection d'un utilisateurs
+Flight::route('/connection', function(){
+    $res = testConnection();
+    if( $res != false  ){ 
+        Flight::view()->display('acceuilConnection.twig', $res );
     }else {
         Flight::view()->display('connection.twig');
     }
@@ -72,23 +79,23 @@ Flight::route('/connection', function(){
 
 // inscription d'un utilsiateurs
 Flight::route('/inscription', function(){
-    Flight::view()->display('inscription.twig');
+    $res = testConnection();
+    if( $res != false  ){ 
+        Flight::view()->display('acceuilConnection.twig', $res );
+    }else {
+        Flight::view()->display('inscription.twig');
+    }   
 });
 
 
 // page d'acceuil d'un utilisateur connectées
 Flight::route('/acceuilConnection', function(){
-    session_start(); 
-    if( isset($_SESSION['user'])){
-        $res = $_SESSION['user'];
-        $data = [
-            'user' => $res,
-        ];
-
-        Flight::view()->display('acceuilConnection.twig', $data );
+    $res = testConnection();
+    if( $res != false  ){ 
+        Flight::view()->display('acceuilConnection.twig', $res );
     }else {
         Flight::view()->display('connection.twig');
-    }
+    }  
 });
 
 

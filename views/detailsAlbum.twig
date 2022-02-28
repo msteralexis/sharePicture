@@ -61,7 +61,6 @@
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 cadre">
         <div id="listAlbum"> 
             {% for list in album.getPhoto %}
-        
                 <article> 
                     <img src="{{list.getImage}}" alt="Base64 Image">  
                     <img src="/views/image/suprime.png" class="suprime" value="{{list.getId}}">
