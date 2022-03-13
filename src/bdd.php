@@ -2,6 +2,7 @@
 
 class Bdd {
     // information connection bdd
+
     protected $serverName = 'localhost';
     protected $userName = 'ioio';
     protected $password = 'ioio';

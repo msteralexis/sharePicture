@@ -31,19 +31,14 @@
                 <tr>
                     <td> Url</td>
                     <td> {{url}}
-
-                      <a  id="copierUrl" class="Button"  value="{{url}}">
-                                copier  
-                          
-                        </a> 
-                        
+                        <a  id="copierUrl" class="Button"  value="{{url}}"> copier   </a>   
                     </td>
                 </tr>
                  <tr>
                     <td> Affichage </td>
                     <td> 
-                        <input type="checkbox" class="demo5" id="demo5" {% if album.getAffiche != 0 %} checked {% endif %} >
-                        <label for="demo5"> </label> 
+                        <input type="checkbox" class="boutonGliserDeposer" id="boutonGliserDeposer" {% if album.getAffiche != 0 %} checked {% endif %} >
+                        <label for="boutonGliserDeposer"> </label> 
                     </td>
                 </tr>
                
@@ -53,7 +48,7 @@
 
     <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 cadre">
         <h2> Drop nouvelle photo  </h2>
-        <div id="drop" style="width:250px;height:250px;background-color:blue;justify-content:center;" >
+        <div id="drop"  >
         </div>   
         <input class="button" type="file" id="inputPhoto" name="inputPhoto" accept="image/png, image/jpeg, image/jpg"> 
     </div>     

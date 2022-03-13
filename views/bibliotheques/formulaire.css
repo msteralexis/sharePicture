@@ -1,10 +1,8 @@
-label
-{
+label {
 	width: 150px; 
     display: block; 
     padding-top:1vh;
 }
-
 
 
 /* Gestion des Bouton lier à l'applciations */
@@ -34,25 +32,15 @@ label
 }
 
              
-
-.effet{
-	background-color:red;
-	color:red;
-	padding-top:50vh;
-}
-
-
-
-
 /*
 
 	Bouton gliser fauche / droite checkbox
 
 */
-input[type="checkbox"].demo5 {
+input[type="checkbox"].boutonGliserDeposer {
 	display: none;
   }
-  input[type="checkbox"].demo5 + label {
+  input[type="checkbox"].boutonGliserDeposer + label {
 	box-sizing: border-box;
 	display: inline-block;
 	width: 3rem;
@@ -62,7 +50,7 @@ input[type="checkbox"].demo5 {
 	background-color: #c0ceda ;
 	transition: all 0.5s ;
   }
-  input[type="checkbox"].demo5 + label::before {
+  input[type="checkbox"].boutonGliserDeposer + label::before {
 	box-sizing: border-box;
 	display: block;
 	content: "";
@@ -72,10 +60,10 @@ input[type="checkbox"].demo5 {
 	background-color: #fff;
 	transition: all 0.5s ;
   }
-  input[type="checkbox"].demo5:checked + label {
+  input[type="checkbox"].boutonGliserDeposer:checked + label {
 	background-color: #00B7E8 ;
   }
-  input[type="checkbox"].demo5:checked + label::before {
+  input[type="checkbox"].boutonGliserDeposer:checked + label::before {
 	margin-left: 1.5rem ;
   }
 

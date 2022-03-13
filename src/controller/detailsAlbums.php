@@ -20,9 +20,7 @@ function jsonRetour( $valeurRetour) {
 
 if( $data->type == 'ajoutphoto' ) {
     $bdd = new Bdd;
-    
-    
-   
+
     if( strlen($data->photo) < 65000){
         $bdd->insertPhoto( "lll", $data->photo, $data->album ) ;
         $_SESSION['user']->miseAjoursAlbums( $bdd );
@@ -31,14 +29,12 @@ if( $data->type == 'ajoutphoto' ) {
         $testReponse = 'fichier trops volumineux';   
     }
     
-   
     $bdd->closeConnection(); jsonRetour( $testReponse ); 
 }
 
 
 if( $data->type == 'affichealbum' ) {
-    $bdd = new Bdd;
-    $testReponse = 'erreur';
+    $bdd = new Bdd; $testReponse = 'erreur';
     if( $data->affiche == 'true' ){
         $affiche = 1;
     }else{
@@ -58,13 +54,11 @@ if( $data->type == 'affichealbum' ) {
 if( $data->type == 'suppressionphoto' ) {
     $bdd = new Bdd;
     $testReponse = 'erreur';
-
-    
+ 
     if($bdd->deletePhoto(  $data->idphoto )  ){
 
         $_SESSION['user']->miseAjoursAlbums( $bdd );
         $testReponse = 'ok';
-
     }
     $bdd->closeConnection(); jsonRetour( $testReponse ); 
 }

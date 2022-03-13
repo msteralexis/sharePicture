@@ -26,12 +26,6 @@ body, html{
 }
 
 
-
-
-
-
-
-
   /* accueil */
 
 #acceuil{
@@ -51,9 +45,11 @@ body, html{
 
 }
 
+
 #acceuil h1{
 	font-size:auto bold;
 	position:absolute;
+	display:hidden;
 	top:20vh;
 	right:15%;
 	background-color:white;
@@ -123,6 +119,18 @@ h2{
 	scrollbar-width: none;
 	background-color:white;
 }
+
+
+/* Gestion affichage du drag and drop */
+#drop{
+	width:250px;height:250px;background-color:blue;justify-content:center;
+}
+
+
+#drop:hover{
+	background-color:red;
+}
+
 
 article{
 	text-align:center;
