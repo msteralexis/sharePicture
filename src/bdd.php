@@ -3,10 +3,13 @@
 class Bdd {
     // information connection bdd
 
-    protected $serverName = 'localhost';
-    protected $userName = 'ioio';
-    protected $password = 'ioio';
-    protected $bddName = "toto";
+    
+
+    
+    protected $serverName = ' polymnie.univ-lyon2.fr';
+    protected $userName = 'aescuder';
+    protected $password = 'aescuder';
+    protected $bddName = "ucieCh2p";
     private $conn = '';
 
     // Constructeur
