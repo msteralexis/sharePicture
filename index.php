@@ -3,7 +3,7 @@
 require "./vendor/autoload.php"; 
 
 // chargement de flight 
-$loader = new \Twig\Loader\FilesystemLoader(dirname(__FILE__) . '/~aescuderviews');
+$loader = new \Twig\Loader\FilesystemLoader(dirname(__FILE__) . '/~aescuder/views');
 $twigConfig = array(
     // 'cache' => './cache/twig/',
     // 'cache' => false,
