@@ -21,7 +21,7 @@ Flight::register('view', '\Twig\Environment', array($loader, $twigConfig), funct
 */
 
 // page d'acceuil
-Flight::route('/sharePicture', function(){
+Flight::route('/', function(){
     Flight::view()->display('index.twig');
 });
 
@@ -31,7 +31,7 @@ Flight::map('notFound', function(){
 });
 
 // affichage d'un album pour les autres utilsiateurs
-Flight::route('/sharePicture/afficheAlbum/@urlAlbum', function($urlAlbum){
+Flight::route('/afficheAlbum/@urlAlbum', function($urlAlbum){
     $bdd = new Bdd;
     $Module = $bdd->detialsAlbumUrl( $urlAlbum );
     if($Module['affiche'] != 0){
@@ -49,7 +49,7 @@ Flight::route('/sharePicture/afficheAlbum/@urlAlbum', function($urlAlbum){
 });
 
 // déconnection et redirection vers la page d'accueil
-Flight::route('/sharePicture/deconnection', function(){
+Flight::route('/deconnection', function(){
     deconnection();
     Flight::view()->display('index.twig');
 });
@@ -67,7 +67,7 @@ function testConnection(){
     
 }
 // connection d'un utilisateurs
-Flight::route('/sharePicture/connection', function(){
+Flight::route('/connection', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
@@ -78,7 +78,7 @@ Flight::route('/sharePicture/connection', function(){
 });
 
 // inscription d'un utilsiateurs
-Flight::route('/sharePicture/inscription', function(){
+Flight::route('/inscription', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
@@ -89,7 +89,7 @@ Flight::route('/sharePicture/inscription', function(){
 
 
 // page d'acceuil d'un utilisateur connectées
-Flight::route('/sharePicture/acceuilConnection', function(){
+Flight::route('/acceuilConnection', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
@@ -100,7 +100,7 @@ Flight::route('/sharePicture/acceuilConnection', function(){
 
 
 // page détaillant le contenue d'un album au utilisateurs et permmetant de le gerer 
-Flight::route('/sharePicture/detailsAlbum/@idalbum', function($idalbum){
+Flight::route('/detailsAlbum/@idalbum', function($idalbum){
     session_start();  $bdd = new Bdd;
     
     if( isset($_SESSION['user'])){
