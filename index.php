@@ -21,7 +21,7 @@ Flight::register('view', '\Twig\Environment', array($loader, $twigConfig), funct
 */
 
 // page d'acceuil
-Flight::route('/', function(){
+Flight::route('//~aescuder/', function(){
     Flight::view()->display('index.twig');
 });
 
