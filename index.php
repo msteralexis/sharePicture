@@ -78,7 +78,7 @@ Flight::route('/~aescuder/connection', function(){
 });
 
 // inscription d'un utilsiateurs
-Flight::route('/inscription', function(){
+Flight::route('/~aescuder/inscription', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
@@ -89,7 +89,7 @@ Flight::route('/inscription', function(){
 
 
 // page d'acceuil d'un utilisateur connectées
-Flight::route('/acceuilConnection', function(){
+Flight::route('/~aescuder/acceuilConnection', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
