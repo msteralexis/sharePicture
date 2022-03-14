@@ -21,7 +21,7 @@ Flight::register('view', '\Twig\Environment', array($loader, $twigConfig), funct
 */
 
 // page d'acceuil
-Flight::route('/~aescuder', function(){
+Flight::route('/', function(){
     Flight::view()->display('index.twig');
 });
 
@@ -67,7 +67,7 @@ function testConnection(){
     
 }
 // connection d'un utilisateurs
-Flight::route('/~aescuder/connection', function(){
+Flight::route('/connection', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
@@ -78,7 +78,7 @@ Flight::route('/~aescuder/connection', function(){
 });
 
 // inscription d'un utilsiateurs
-Flight::route('/~aescuder/inscription', function(){
+Flight::route('/inscription', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
@@ -89,7 +89,7 @@ Flight::route('/~aescuder/inscription', function(){
 
 
 // page d'acceuil d'un utilisateur connectées
-Flight::route('/~aescuder/acceuilConnection', function(){
+Flight::route('/acceuilConnection', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
