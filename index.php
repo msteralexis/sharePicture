@@ -67,7 +67,7 @@ function testConnection(){
     
 }
 // connection d'un utilisateurs
-Flight::route('/connection', function(){
+Flight::route('/~aescuder/connection', function(){
     $res = testConnection();
     if( $res != false  ){ 
         Flight::view()->display('acceuilConnection.twig', $res );
